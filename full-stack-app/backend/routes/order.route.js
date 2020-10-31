@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const OrderRoute = express.Router();
 
-// Employee model
+// Order model
 let Order = require('../models/order');
 
-// Add Employee
+// Add Order
 OrderRoute.route('/create').post((req, res, next) => {
     Order.create(req.body, (error, data) => {
     if (error) {
@@ -16,7 +16,7 @@ OrderRoute.route('/create').post((req, res, next) => {
   })
 });
 
-// Get All Employees
+// Get All Orders
 OrderRoute.route('/').get((req, res) => {
     Order.find((error, data) => {
     if (error) {
@@ -27,7 +27,7 @@ OrderRoute.route('/').get((req, res) => {
   })
 })
 
-// Get single employee
+// Get single Order
 OrderRoute.route('/read/:id').get((req, res) => {
     Order.findById(req.params.id, (error, data) => {
     if (error) {
@@ -39,7 +39,7 @@ OrderRoute.route('/read/:id').get((req, res) => {
 })
 
 
-// Update employee
+// Update Order
 OrderRoute.route('/update/:id').put((req, res, next) => {
     Order.findByIdAndUpdate(req.params.id, {
     $set: req.body
@@ -54,7 +54,7 @@ OrderRoute.route('/update/:id').put((req, res, next) => {
   })
 })
 
-// Delete employee
+// Delete Order
 OrderRoute.route('/delete/:id').delete((req, res, next) => {
     Order.findOneAndRemove(req.params.id, (error, data) => {
     if (error) {

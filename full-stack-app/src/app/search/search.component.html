@@ -1,0 +1,8 @@
+<div>
+    <button mat-button [matMenuTriggerFor]="menu">Search</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="changetoAllTime()">All Time</button>
+  <button mat-menu-item (click)="changetoAllTime()">Last 7 days</button>
+  <button mat-menu-item (click)="changetoAllTime()">Today</button>
+</mat-menu>
+</div>
